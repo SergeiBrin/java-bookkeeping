@@ -9,7 +9,10 @@ public class ReaderManager {
         for (int i = 1; i < 4; i++) {
             records = new ArrayList<>();
             String file = readFileContentsOrNull("resources\\m.20210" + i + ".csv");
-            String[] lines = file.split("\n");
+            if (file == null) {
+                System.out.println("Ошибка! Проверьте, путь – к файлу с отчётом.");
+            } else {
+                String[] lines = file.split("\n");
                 for (int j = 1; j < lines.length; j++) {
                     String line = lines[j];
                     String[] value = line.split(",");
@@ -19,8 +22,9 @@ public class ReaderManager {
                     int sumOfOne = Integer.parseInt(value[3]);
                     MonthRecord monthRecord = new MonthRecord(itemName, isExpense, quantity, sumOfOne);
                     records.add(monthRecord);
-            }
+                }
                 report.reportsByMonths.put(i, records);
+            }
         }
         if (!report.reportsByMonths.isEmpty()) {
             System.out.println("Месячные отчёты добавлены.");
@@ -28,15 +32,19 @@ public class ReaderManager {
     }
     void readReportsOfYear(YearlyReport report) {
         String file = readFileContentsOrNull("resources\\y.2021.csv");
-        String[] lines = file.split("\n");
-        for (int i = 1; i < lines.length; i++) {
-            String line = lines[i];
-            String[] value = line.split(",");
-            int month = Integer.parseInt(value[0]);
-            int amount = Integer.parseInt(value[1]);
-            boolean isExpense = Boolean.parseBoolean(value[2]);
-            YearRecord yearRecord = new YearRecord(month, amount, isExpense);
-            report.reportsByYear.add(yearRecord);
+        if (file == null) {
+            System.out.println("Ошибка! Проверьте, путь – к файлу с отчётом.");
+        } else {
+            String[] lines = file.split("\n");
+            for (int i = 1; i < lines.length; i++) {
+                String line = lines[i];
+                String[] value = line.split(",");
+                int month = Integer.parseInt(value[0]);
+                int amount = Integer.parseInt(value[1]);
+                boolean isExpense = Boolean.parseBoolean(value[2]);
+                YearRecord yearRecord = new YearRecord(month, amount, isExpense);
+                report.reportsByYear.add(yearRecord);
+            }
         }
         if (!report.reportsByYear.isEmpty()) {
             System.out.println("Годовой отчёт добавлен.");
