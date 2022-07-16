@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 
 public class MonthlyReport {
@@ -72,7 +73,7 @@ public class MonthlyReport {
     }
 
     void getMonthlyReport() {
-        LinkedHashMap<String, ArrayList<MonthsStatisticsRecord>> statistics = new LinkedHashMap<>();
+        HashMap<String, ArrayList<MonthsStatisticsRecord>> statistics = new HashMap<>();
         int i = 0;
 
         if (reportsByMonths == null) {
