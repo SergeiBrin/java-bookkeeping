@@ -1,2 +1,2 @@
-# java-sprint2-hw
+# java-bookkeeping
 Second sprint homework
