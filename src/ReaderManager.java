@@ -2,13 +2,16 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 
 public class ReaderManager {
-    ArrayList<MonthRecord> records;
+    List<MonthRecord> records;
+
     void readReportsOfMonths(MonthlyReport report) {
         for (int i = 1; i < 4; i++) {
             records = new ArrayList<>();
             String file = readFileContentsOrNull("resources\\m.20210" + i + ".csv");
+
             if (file == null) {
                 System.out.println("Ошибка! Проверьте, путь – к файлу с отчётом.");
             } else {
@@ -26,6 +29,7 @@ public class ReaderManager {
                 report.reportsByMonths.put(i, records);
             }
         }
+
         if (!report.reportsByMonths.isEmpty()) {
             System.out.println("Месячные отчёты добавлены.");
         }

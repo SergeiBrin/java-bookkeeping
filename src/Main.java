@@ -1,20 +1,12 @@
 import java.util.Scanner;
 
 public class Main {
-    // В программе использовал LinkedHashMap, чтобы потом иттерировать ключи в правильной последовательности.
-
-    // Для вывода статистики по месячным отчётам создал класс MonthsStatisticsRecord, объекты которого положил
-    // в LinkedHashMap statistics – из него я потом выводил значения.
-    // Сначала я хотел сделать объекты на базе существующего класса MonthRecord, но не уверен, что так правильно,
-    // так как в объектах появятся лишние переменные, к которым потом будет возможность обратиться.
 
     public static void main(String[] args) {
-        System.out.println("Поползли :)"); // Поехали!
-
         Scanner scanner = new Scanner(System.in);
         MonthlyReport monthlyReport = new MonthlyReport();
         YearlyReport yearlyReport = new YearlyReport();
-        ReaderManager readerManager = new ReaderManager(); // Для считывания файлов сделал отдельныый класс, чтобы разграничить функционал.
+        ReaderManager readerManager = new ReaderManager(); // Для считывания файлов сделал отдельный класс, чтобы разграничить функционал.
 
         while (true) {
             printMenu();

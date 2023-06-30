@@ -1,9 +1,10 @@
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.List;
 
 public class MonthlyReport {
-    LinkedHashMap<Integer, ArrayList<MonthRecord>> reportsByMonths;
+    LinkedHashMap<Integer, List<MonthRecord>> reportsByMonths;
     String[] monthsName;
     int[] incomeByMonths;
     int[] expenseByMonths;
@@ -46,7 +47,6 @@ public class MonthlyReport {
         boolean isNotNullReports = (reportsByMonths == null) || (report.reportsByYear == null);
         boolean isNotEmpty = (reportsByMonths.isEmpty()) || (report.reportsByYear.isEmpty());
 
-        // Сделал проверку на null и на пустые Collections. Не знаю, нужно ли это. Рассчитываю на совет.
         if (isNotNullReports) {
             System.out.println("Ошибка! Вы не проинициализировали Collections. Проинициализируйте Collections, а потом считайте месячные и годовой отчёты.");
         } else if (isNotEmpty) {
@@ -68,7 +68,6 @@ public class MonthlyReport {
             } else {
                 System.out.println("К сожалению, это залёт :P");
             }
-
         }
     }
 

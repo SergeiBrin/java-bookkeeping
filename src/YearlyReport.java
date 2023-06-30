@@ -1,7 +1,8 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class YearlyReport {
-    ArrayList<YearRecord> reportsByYear;
+    List<YearRecord> reportsByYear;
     int year;
     String[] monthsName;
     int[] profit;
