@@ -4,13 +4,12 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 public class MonthlyReport {
-    LinkedHashMap<Integer, List<MonthRecord>> reportsByMonths;
+    LinkedHashMap<Integer, List<MonthRecord>> reportsByMonths = new LinkedHashMap<>();
     String[] monthsName;
     int[] incomeByMonths;
     int[] expenseByMonths;
 
     MonthlyReport() {
-        reportsByMonths = new LinkedHashMap<>();
         monthsName = new String[] {
                 "Январь",
                 "Февраль",
@@ -101,6 +100,7 @@ public class MonthlyReport {
                         }
                     }
                 }
+
                 MonthsStatisticsRecord record = new MonthsStatisticsRecord(nameProfit, maxProfit, nameExpense, maxExpense);
                 ArrayList<MonthsStatisticsRecord> list = new ArrayList<>();
                 list.add(record);

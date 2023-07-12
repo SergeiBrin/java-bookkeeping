@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class YearlyReport {
-    List<YearRecord> reportsByYear;
+    List<YearRecord> reportsByYear = new ArrayList<>();
     int year;
     String[] monthsName;
     int[] profit;
@@ -12,7 +12,6 @@ public class YearlyReport {
     double averageExpense;
 
     public YearlyReport() {
-        reportsByYear = new ArrayList<>();
         year = 2021;
         monthsName = new String[] {
                 "Январь",
@@ -67,7 +66,6 @@ public class YearlyReport {
             }
         }
 
-        // Не стал помещать в цикл, чтоб код был понятнее.
         expenseByMonths[0] = expenseJanuary;
         expenseByMonths[1] = expenseFebruary;
         expenseByMonths[2] = expenseMarch;
@@ -92,14 +90,17 @@ public class YearlyReport {
         } else {
             System.out.println(year + " год.");
             System.out.print("Прибыль по каждому месяцу: ");
+
             for (int i = 0; i < profit.length; i++) {
                 System.out.print(monthsName[i] + " – " + profit[i]);
+
                 if (i + 1 < profit.length) {
                     System.out.print("; ");
                 } else {
                     System.out.println(".");
                 }
             }
+
             System.out.println("Средний расход за все месяцы: " + averageExpense);
             System.out.println("Средний доход за все месяцы: " + averageIncome);
         }
